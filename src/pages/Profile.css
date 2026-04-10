@@ -30,17 +30,6 @@
   flex-shrink: 0;
 }
 
-.profile__avatar {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.profile__avatar--placeholder {
-  background: #2c2c2e;
-}
-
 .profile__level {
   position: absolute;
   bottom: -2px;
@@ -54,6 +43,7 @@
   border-radius: 6px;
   white-space: nowrap;
   letter-spacing: 0.3px;
+  z-index: 2;
 }
 
 .profile__details {

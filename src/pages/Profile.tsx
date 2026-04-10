@@ -1,11 +1,13 @@
 import { useTelegram } from '../hooks/useTelegram';
 import { GameIcon } from '../components/icons';
+import { CircularAvatar } from '../components/CircularAvatar';
 import './Profile.css';
 
 export function Profile() {
   const { user } = useTelegram();
   const level = 1;
   const balance = 0;
+  const xpProgress = 0;
 
   const avatarUrl = user?.photo_url || '';
   const displayName = user?.first_name || 'Пользователь';
@@ -16,11 +18,11 @@ export function Profile() {
         <div className="profile__header">
           <div className="profile__user-info">
             <div className="profile__avatar-wrapper">
-              {avatarUrl ? (
-                <img src={avatarUrl} alt={displayName} className="profile__avatar" />
-              ) : (
-                <div className="profile__avatar profile__avatar--placeholder" />
-              )}
+              <CircularAvatar
+                src={avatarUrl || undefined}
+                alt={displayName}
+                progress={xpProgress}
+              />
               <span className="profile__level">Ур. {level}</span>
             </div>
             <div className="profile__details">
