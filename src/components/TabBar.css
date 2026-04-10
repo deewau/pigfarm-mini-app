@@ -23,8 +23,9 @@
   min-width: 56px;
 }
 
-.tab-bar__item:hover:not(.tab-bar__item--active) {
-  opacity: 0.7;
+.tab-bar__item:hover:not(.tab-bar__item--active) .tab-bar__icon,
+.tab-bar__item:hover:not(.tab-bar__item--active) .tab-bar__label {
+  color: #007aff;
 }
 
 .tab-bar__icon-wrapper {
