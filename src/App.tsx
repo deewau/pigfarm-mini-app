@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
+import { Profile } from './pages/Profile';
 import { TabBar } from './components/TabBar';
 import { TrophyIcon, GiftsIcon, GameIcon, TasksIcon, ProfileIcon } from './components/icons';
 
@@ -13,7 +14,7 @@ function App() {
           <Route path="giveaways" element={<PlaceholderPage title="Розыгрыши" />} />
           <Route path="play" element={<PlaceholderPage title="Играть" />} />
           <Route path="tasks" element={<PlaceholderPage title="Задания" />} />
-          <Route path="profile" element={<PlaceholderPage title="Профиль" />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
@@ -30,7 +31,7 @@ function Layout() {
           <Route path="giveaways" element={<PlaceholderPage title="Розыгрыши" />} />
           <Route path="play" element={<PlaceholderPage title="Играть" />} />
           <Route path="tasks" element={<PlaceholderPage title="Задания" />} />
-          <Route path="profile" element={<PlaceholderPage title="Профиль" />} />
+          <Route path="profile" element={<Profile />} />
         </Routes>
       </div>
       <BottomBar />
