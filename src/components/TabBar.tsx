@@ -103,6 +103,14 @@ export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, onTabChange }) => {
               ...styles.tab,
               ...(isActive ? styles.tabActive : {}),
             }}
+            onMouseEnter={(e) => {
+              if (!isActive) {
+                e.currentTarget.style.opacity = '0.7';
+              }
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.opacity = '1';
+            }}
             type="button"
           >
             <span style={styles.iconWrapper}>
@@ -162,6 +170,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 500,
     lineHeight: 1,
     transition: 'color 0.15s ease',
+    color: '#007aff',
   },
 };
 
