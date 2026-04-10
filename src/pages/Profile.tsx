@@ -3,11 +3,13 @@ import { useTelegram } from '../hooks/useTelegram';
 import { GameIcon } from '../components/icons';
 import { CircularAvatar } from '../components/CircularAvatar';
 import { SettingsModal } from '../components/SettingsModal';
+import { DepositModal } from '../components/DepositModal';
 import './Profile.css';
 
 export function Profile() {
   const { user } = useTelegram();
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [depositOpen, setDepositOpen] = useState(false);
   const level = 1;
   const balance = 0;
   const xpProgress = 0;
@@ -48,10 +50,11 @@ export function Profile() {
             </svg>
           </button>
         </div>
-        <button className="profile__deposit">Пополнить баланс</button>
+        <button className="profile__deposit" onClick={() => setDepositOpen(true)}>Пополнить баланс</button>
       </div>
 
       <SettingsModal isOpen={settingsOpen} onClose={() => setSettingsOpen(false)} />
+      <DepositModal isOpen={depositOpen} onClose={() => setDepositOpen(false)} />
     </div>
   );
 }
