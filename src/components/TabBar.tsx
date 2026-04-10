@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './TabBar.css';
 
 export interface TabItem {
   id: string;
@@ -55,25 +56,9 @@ const Badge: FC<{ count?: boolean | number }> = ({ count }) => {
   if (!count) return null;
   const label = typeof count === 'number' ? count : '';
   return (
-    <span style={{
-      position: 'absolute',
-      top: 4,
-      right: -4,
-      minWidth: 8,
-      height: 8,
-      borderRadius: 4,
-      backgroundColor: '#ff3b30',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}>
+    <span className="tab-bar__badge">
       {label && (
-        <span style={{
-          fontSize: 9,
-          lineHeight: 1,
-          color: '#fff',
-          fontWeight: 600,
-        }}>
+        <span className="tab-bar__badge-text">
           {label}
         </span>
       )}
@@ -92,40 +77,23 @@ export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, onTabChange }) => {
   };
 
   return (
-    <nav style={styles.container}>
+    <nav className="tab-bar">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id;
         return (
           <button
             key={tab.id}
             onClick={() => handleTabClick(tab)}
-            style={{
-              ...styles.tab,
-              ...(isActive ? styles.tabActive : {}),
-            }}
-            onMouseEnter={(e) => {
-              if (!isActive) {
-                e.currentTarget.style.opacity = '0.7';
-              }
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = '1';
-            }}
+            className={`tab-bar__item ${isActive ? 'tab-bar__item--active' : ''}`}
             type="button"
           >
-            <span style={styles.iconWrapper}>
-              <span style={{
-                color: isActive ? '#007aff' : '#8e8e93',
-                transition: 'color 0.15s ease',
-              }}>
+            <span className="tab-bar__icon-wrapper">
+              <span className="tab-bar__icon">
                 {tab.icon}
               </span>
               <Badge count={tab.badge} />
             </span>
-            <span style={{
-              ...styles.label,
-              color: isActive ? '#007aff' : '#8e8e93',
-            }}>
+            <span className="tab-bar__label">
               {tab.label}
             </span>
           </button>
@@ -133,45 +101,6 @@ export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, onTabChange }) => {
       })}
     </nav>
   );
-};
-
-const styles: Record<string, React.CSSProperties> = {
-  container: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    padding: '8px 16px',
-    paddingBottom: 'max(8px, env(safe-area-inset-bottom))',
-    backgroundColor: '#1c1c1e',
-    borderRadius: 16,
-    margin: '8px 8px',
-    boxShadow: '0 -1px 10px rgba(0, 0, 0, 0.3)',
-  },
-  tab: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: 'none',
-    border: 'none',
-    cursor: 'pointer',
-    padding: '4px 12px',
-    position: 'relative',
-    minWidth: 56,
-  },
-  tabActive: {},
-  iconWrapper: {
-    position: 'relative',
-    display: 'inline-flex',
-    marginBottom: 2,
-  },
-  label: {
-    fontSize: 10,
-    fontWeight: 500,
-    lineHeight: 1,
-    transition: 'color 0.15s ease',
-    color: '#007aff',
-  },
 };
 
 export default TabBar;
