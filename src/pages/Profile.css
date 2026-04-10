@@ -1,11 +1,14 @@
 .profile {
-  padding: 16px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .profile__card {
   background: #1c1c1e;
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 16px;
 }
 
 .profile__header {
@@ -40,28 +43,31 @@
 
 .profile__level {
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.65);
   color: #fff;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 600;
-  padding: 2px 6px;
+  padding: 2px 5px;
   border-radius: 6px;
   white-space: nowrap;
+  letter-spacing: 0.3px;
 }
 
 .profile__details {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .profile__name {
-  font-size: 18px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
   font-weight: 600;
-  color: #f3f4f6;
+  color: #ffffff;
+  line-height: 1.2;
 }
 
 .profile__balance {
@@ -71,9 +77,11 @@
 }
 
 .profile__balance-value {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: #f3f4f6;
+  color: #ffffff;
+  line-height: 1;
 }
 
 .profile__balance-icon {
@@ -86,8 +94,8 @@
   background: rgba(255, 255, 255, 0.08);
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,15 +111,17 @@
 
 .profile__deposit {
   width: 100%;
-  padding: 14px;
+  padding: 13px 16px;
   background: #007aff;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 12px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s ease;
+  letter-spacing: 0.2px;
 }
 
 .profile__deposit:hover {
